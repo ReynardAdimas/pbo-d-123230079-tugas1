@@ -19,8 +19,6 @@ public class MainPage extends JFrame implements ActionListener{
     private JScrollPane sp;
     private ButtonGroup grup; 
     private ArrayList<String[]> dataNama;
- 
-    private BufferedWriter writer;
     public MainPage(){
         super("Halaman Input Data"); 
         
@@ -29,6 +27,7 @@ public class MainPage extends JFrame implements ActionListener{
         dataNama = new ArrayList<String[]>();
         
         panel1 = new JPanel(new GridLayout(3,3)); 
+        //panel1.setBackground(Color.red);
         namaDepan = new JLabel("Nama Depan : "); 
         namaBelakang = new JLabel("Nama Belakang : ");
         tfNamaDepan = new JTextField(10);
@@ -36,8 +35,9 @@ public class MainPage extends JFrame implements ActionListener{
         jenisKelamin = new JLabel("Jenis Kelamin"); 
         
         panel2 = new JPanel(new GridLayout(6,2)); 
+        //panel2.setBackground(Color.yellow);
         panel3 = new JPanel(new GridLayout(1,2));
-        
+        //panel3.setBackground(Color.green);
         btnSave = new JButton("Simpan"); 
         btnSave.addActionListener(this);
         rb1 = new JRadioButton("Laki - Laki"); 
