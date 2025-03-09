@@ -26,16 +26,16 @@ public class LoginPage extends JFrame implements ActionListener{
         panel.add(username); 
         panel.add(passLabel);
         panel.add(password); 
-        add(panel, BorderLayout.CENTER); 
+        add(panel, BorderLayout.NORTH); 
         
         panelBtn = new JPanel();
         btnLogin = new JButton("Login");
         btnLogin.addActionListener(this);
         panelBtn.add(btnLogin); 
-        add(panelBtn, BorderLayout.SOUTH); 
+        add(panelBtn, BorderLayout.CENTER); 
         
         message = new JLabel("", SwingConstants.CENTER);
-        add(message, BorderLayout.NORTH);
+        add(message, BorderLayout.SOUTH);
         
         pack();
         setSize(300,150);

@@ -8,56 +8,62 @@ import javax.swing.*;
 public class MainPage extends JFrame implements ActionListener{
     private JLabel namaDepan, namaBelakang, jenisKelamin, message; 
     private JTextField tfNamaDepan, tfNamaBelakang; 
+    private JTextArea textArea;
     private JRadioButton rb1, rb2; 
-    private JPanel panel1, panel2, panel3,panel4;
+    private JPanel panel1, panel2, panel3;
     private JButton btnSave, ubah;
     private JScrollPane sp;
     private ButtonGroup grup;
     public MainPage(){
         super("Halaman Input Data"); 
         
-        setLayout(new BorderLayout());
+        setLayout(new BorderLayout(0,0));
         
-        panel1 = new JPanel(new GridLayout(2,4,5,5)); 
+        panel1 = new JPanel(new GridLayout(3,3)); 
         namaDepan = new JLabel("Nama Depan : "); 
+        namaBelakang = new JLabel("Nama Belakang : ");
         tfNamaDepan = new JTextField(10);
-        namaBelakang = new JLabel("Nama Belakang : "); 
         tfNamaBelakang = new JTextField(10); 
-         
-        panel1.add(namaDepan); 
-        panel1.add(tfNamaDepan);
-        panel1.add(namaBelakang); 
-        panel1.add(tfNamaBelakang); 
-        add(panel1, BorderLayout.PAGE_START);
-        
-        panel2 = new JPanel(new FlowLayout()); 
         jenisKelamin = new JLabel("Jenis Kelamin"); 
+        
+        panel2 = new JPanel(new GridLayout(5,2)); 
+        panel3 = new JPanel(new GridLayout(1,2));
+        
+        btnSave = new JButton("Simpan"); 
+        btnSave.addActionListener(this);
         rb1 = new JRadioButton("Laki - Laki"); 
         rb2 = new JRadioButton("Perempuan"); 
-        btnSave = new JButton("Simpan");
-        btnSave.addActionListener(this);
-        message = new JLabel("");
-        sp = new JScrollPane();
-        ubah = new JButton("Convert to .txt file");
+        message = new JLabel(""); 
+        
+        textArea = new JTextArea();
+        sp = new JScrollPane(textArea); 
+        sp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        sp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);       
+        ubah = new JButton("Convert");
+        
         grup = new ButtonGroup();
         grup.add(rb1); 
         grup.add(rb2); 
         
-        panel2.add(jenisKelamin); 
-        panel2.add(rb1);
-        panel2.add(rb2); 
+        
+        panel3.add(rb1);
+        panel3.add(rb2); 
+        
+        panel2.add(panel3);
         panel2.add(btnSave);
-        panel2.add(message); 
+        panel2.add(message);  
         panel2.add(sp);
         panel2.add(ubah);
-        add(panel2,BorderLayout.CENTER); 
         
+        panel1.add(namaDepan); 
+        panel1.add(namaBelakang);
+        panel1.add(tfNamaDepan);
+        panel1.add(tfNamaBelakang); 
+        panel1.add(jenisKelamin);
+        panel1.add(panel2);
         
-//        panel4 = new JPanel();
-//        message = new JLabel("");
-//        panel4.add(message); 
-//        add(panel4, BorderLayout.SOUTH);
-        
+        add(panel1, BorderLayout.NORTH);
+        add(panel2,BorderLayout.CENTER);
         pack();
         setSize(500,500);
         setResizable(true);
